@@ -27,5 +27,8 @@
    }
 
      .text-small {
-    font: var(--text-small);
+    font: var(--h3);
+   
+   
+    
    }

@@ -21,9 +21,11 @@
       position: absolute;
       bottom: 0;
       padding: 24px;
-      h2 {
-        margin-top: 8px;
-       }
+      &:has(.text-small) {
+        padding: 12px;
+        
+      }
+      
       
 
       span {
@@ -33,10 +35,7 @@
         color: var(--primary-color);
       }
 
-      h2 {
-        font: var(--h2); 
-        
-      }
+     
     }
   }
 
