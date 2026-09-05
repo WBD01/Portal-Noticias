@@ -50,8 +50,10 @@ img {
     padding-inline: 32px;
 }
 
+
 main {
     margin-top: 40px;
+    gap: 80px;
 }
 
 .content-tag {
