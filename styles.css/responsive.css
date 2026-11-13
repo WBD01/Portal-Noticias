@@ -1,0 +1,100 @@
+/* ============================================================
+   RESPONSIVIDADE
+   Abordagem: desktop-first com breakpoints em 1024 / 768 / 480px
+   ============================================================ */
+
+/* ---------- Tablet landscape e abaixo (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+  .container {
+    padding-inline: 24px;
+  }
+
+  /* Layout principal passa a ser de coluna única */
+  main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "featured"
+      "weekly"
+      "ai"
+      "aside";
+    row-gap: 56px;
+  }
+
+  /* "Mais lidas": de 4 para 2 colunas */
+  #weekly > div {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  /* Como o aside agora é largura total, distribui as matérias em 2 colunas */
+  #more > div {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---------- Tablet / mobile grande (<= 768px) ---------- */
+@media (max-width: 768px) {
+  /* Destaques: empilha o card grande sobre a grade dos menores */
+  #featured {
+    grid-auto-flow: row;
+  }
+
+  #featured .card:first-child img {
+    height: 320px;
+    width: 100%;
+  }
+
+  /* Matérias de IA: texto em cima, imagem embaixo (largura total) */
+  #ai article {
+    grid-auto-flow: row;
+  }
+
+  #ai img {
+    width: 100%;
+    height: 240px;
+    aspect-ratio: auto;
+  }
+}
+
+/* ---------- Mobile (<= 480px) ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding-inline: 16px;
+  }
+
+  main {
+    margin-top: 24px;
+    row-gap: 40px;
+  }
+
+  /* Título principal um pouco menor na tela pequena */
+  :root {
+    --h1: 800 20px/130% var(--font-family);
+  }
+
+  /* Navegação de categorias vira rolagem horizontal */
+  #secondary {
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    scrollbar-width: none;
+  }
+
+  #secondary::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Oculta os textos "Menu" / "Buscar" para não apertar o logo */
+  #primary div:nth-child(1) strong,
+  #primary div:nth-child(3) strong {
+    display: none;
+  }
+
+  /* Tudo em coluna única no celular */
+  #featured .grid-flow-column2,
+  #weekly > div,
+  #more > div {
+    grid-template-columns: 1fr;
+  }
+}

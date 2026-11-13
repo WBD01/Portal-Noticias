@@ -7,6 +7,17 @@
     gap: 8px;
   }
 
+  div:nth-child(1),
+  div:nth-child(3) {
+    cursor: pointer;
+    transition: color var(--transition);
+  }
+
+  div:nth-child(1):hover,
+  div:nth-child(3):hover {
+    color: var(--brand-color-light);
+  }
+
   div:nth-child(2) {
       margin-inline: auto;
   }
@@ -20,4 +31,26 @@
   border: solid 1px var(--stroke-color);
   border-inline: none;
   justify-content: space-between;
+  gap: 16px;
+
+  a {
+    position: relative;
+    white-space: nowrap;
+    font: var(--text-span);
+  }
+
+  a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: var(--brand-color-light);
+    transition: width var(--transition);
+  }
+
+  a:hover::after {
+    width: 100%;
+  }
 }
